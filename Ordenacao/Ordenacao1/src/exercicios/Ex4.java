@@ -11,6 +11,11 @@ public class Ex4 {
 	}
 
 	public static boolean ordenado(int vet[]) {
-		
+		for (int i = 1; i < vet.length; i++) {
+			if (vet[i - 1] > vet[i]) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
