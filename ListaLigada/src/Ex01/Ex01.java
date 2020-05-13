@@ -1,4 +1,5 @@
 package Ex01;
+
 class Nodo {
 	public int dado;
 	public Nodo link; // referência
@@ -113,7 +114,7 @@ class ListaLigadaSimples {
 	}
 }
 
-public class TesteLista {
+public class Ex01 {
 	public static void main(String args[]) {
 		ListaLigadaSimples lista = new ListaLigadaSimples();
 		lista.adicionarInicio(7);
