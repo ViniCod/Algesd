@@ -3,6 +3,10 @@ package Ex04;
 class Nodo {
 	public int dado;
 	public Nodo link; // referência
+	
+	public String toString() {
+		return ""+dado;
+	}
 }
 
 class ListaLigadaSimples {
@@ -149,7 +153,7 @@ public class Ex04 {
 		lista.adicionarFim(11);
 		System.out.println("Lista no princípio: " + lista);
 		System.out.println("Lista é crescente? " + lista.crescente());
-		System.out.println("Mínimo elemento da lista: " + lista.minimo().dado);
+		System.out.println("Mínimo elemento da lista: " + lista.minimo());
 		System.out.println("Removi o primeiro: " + lista.removerInicio());
 		System.out.println("Lista após remoção: " + lista);
 		System.out.println("Removi o último: " + lista.removerFim());
