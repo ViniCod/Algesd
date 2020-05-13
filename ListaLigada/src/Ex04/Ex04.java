@@ -3,9 +3,9 @@ package Ex04;
 class Nodo {
 	public int dado;
 	public Nodo link; // referência
-	
+
 	public String toString() {
-		return ""+dado;
+		return "" + dado;
 	}
 }
 
@@ -142,6 +142,18 @@ class ListaLigadaSimples {
 		return min;
 	}
 
+	public Nodo minimoRecursivo(Nodo primeiro) {
+		if (primeiro == null)
+			return null;
+		if (primeiro.link == null)
+			return primeiro;
+		Nodo menorDoRestoDaLista = minimoRecursivo(primeiro.link);
+		if (primeiro.dado < menorDoRestoDaLista.dado)
+			return primeiro;
+		else
+			return menorDoRestoDaLista;
+	}
+
 }
 
 public class Ex04 {
@@ -154,6 +166,7 @@ public class Ex04 {
 		System.out.println("Lista no princípio: " + lista);
 		System.out.println("Lista é crescente? " + lista.crescente());
 		System.out.println("Mínimo elemento da lista: " + lista.minimo());
+		System.out.println("Mínimo elemento da lista (recursivo): " + lista.minimoRecursivo(lista.inicio));
 		System.out.println("Removi o primeiro: " + lista.removerInicio());
 		System.out.println("Lista após remoção: " + lista);
 		System.out.println("Removi o último: " + lista.removerFim());
