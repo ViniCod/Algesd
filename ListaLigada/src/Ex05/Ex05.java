@@ -128,32 +128,6 @@ class ListaLigadaSimples {
 		return true;
 	}
 
-	public Nodo minimo() {
-		if (quantidade == 0)
-			return null;
-		Nodo min = inicio;
-		Nodo aux = inicio.link;
-		while (aux != null) {
-			if (aux.dado < min.dado) {
-				min = aux;
-			}
-			aux = aux.link;
-		}
-		return min;
-	}
-
-	public Nodo minimoRecursivo(Nodo primeiro) {
-		if (primeiro == null)
-			return null;
-		if (primeiro.link == null)
-			return primeiro;
-		Nodo menorDoRestoDaLista = minimoRecursivo(primeiro.link);
-		if (primeiro.dado < menorDoRestoDaLista.dado)
-			return primeiro;
-		else
-			return menorDoRestoDaLista;
-	}
-
 	public boolean iguais(ListaLigadaSimples lista2) {
 		if (quantidade != lista2.quantidade)
 			return false;
@@ -167,6 +141,18 @@ class ListaLigadaSimples {
 			aux2 = aux2.link;
 		}
 		return true;
+	}
+
+	public boolean iguaisRecursivo(ListaLigadaSimples lista2, Nodo inicio, Nodo inicio2) {
+		if (quantidade != lista2.quantidade)
+			return false;
+		if (inicio == fim)
+			return true;
+		if (inicio.dado != inicio.dado) {
+			return false;
+		} else {
+			return iguaisRecursivo(lista2, inicio.link, inicio2.link);
+		}
 	}
 
 }
@@ -186,9 +172,8 @@ public class Ex05 {
 		lista2.adicionarFim(11);
 		System.out.println("Lista no princípio: " + lista);
 		System.out.println("Lista é crescente? " + lista.crescente());
-		System.out.println("Mínimo elemento da lista: " + lista.minimo());
-		System.out.println("Mínimo elemento da lista (recursivo): " + lista.minimoRecursivo(lista.inicio));
 		System.out.println("Lista é igual a lista2?: " + lista.iguais(lista2));
+		System.out.println("Lista é igual a Lista2? (recursivo): " + lista.iguaisRecursivo());
 		System.out.println("Removi o primeiro: " + lista.removerInicio());
 		System.out.println("Lista após remoção: " + lista);
 		System.out.println("Removi o último: " + lista.removerFim());
