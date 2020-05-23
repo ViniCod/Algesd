@@ -222,20 +222,23 @@ class ArvoreBinaria {
 	}
 
 	/* 6) */
-	 public int maiorElemento(No Raiz) { 
-		 if (raiz == null) 
-			 return 0;
-		 int a = 0;
-		 if (raiz.direita > a) {
-			 
-		 }
-	 }
-	 
-	 public int menorElemento(No Raiz) {
-		 if (raiz == null) 
-			 return 0;
-		 menorElemento(raiz.esquerda);
-	 }
+	public int maiorElemento(No raiz) {
+		if (raiz == null)
+			return 0;
+		if (raiz.direita == null)
+			return raiz.chave;
+		else
+			return maiorElemento(raiz.direita);
+	}
+
+	public int menorElemento(No raiz) {
+		if (raiz == null)
+			return 0;
+		if (raiz.esquerda == null)
+			return raiz.chave;
+		else
+			return menorElemento(raiz.esquerda);
+	}
 }
 
 public class Main {
@@ -281,6 +284,8 @@ public class Main {
 		/* 4) */System.out.println("Folhas desta arvore: ");
 		ab.mostrarFolhas(ab.getRaiz());
 		/* 5) */System.out.println("A altura da arvore é: " + ab.alturaArvore(ab.getRaiz()));
+		/* 6) */System.out.println("O maior elemento da árvore é: " + ab.maiorElemento(ab.getRaiz()));
+		/* 6) */System.out.println("O menor elemento da árvore é: " + ab.menorElemento(ab.getRaiz()));
 		System.out.println("\nRemovendo o 5 ......");
 		ab.remove(ab.procurar(5));
 		System.out.println(ab);
